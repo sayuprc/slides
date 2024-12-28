@@ -1,0 +1,12 @@
+{
+  "name": "slides",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sayuprc/slides.git",
+  "author": "sayuprc",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "src/*"
+  ]
+}
