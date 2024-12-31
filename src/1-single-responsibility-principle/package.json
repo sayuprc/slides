@@ -1,0 +1,18 @@
+{
+  "name": "1-single-responsibility-principle",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --remote",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.51.0-beta.4",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "slidev-theme-dracula": "^0.2.0",
+    "vue": "^3.5.13"
+  }
+}
