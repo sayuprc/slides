@@ -2,8 +2,6 @@
 theme: dracula
 title: SOLID 原則/単一責任の原則(SRP)
 author: 白湯/sayuprc
-themeConfig:
-  primary: '#00ff00'
 ---
 
 # SOLID 原則<br>単一責任の原則(SRP)
