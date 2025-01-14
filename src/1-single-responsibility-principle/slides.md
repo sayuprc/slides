@@ -15,26 +15,73 @@ ___
 
 # SOLID 原則とは
 
-OOP において、ソフトウェア設計時に従うべき 5 つのガイドラインのこと
+ソフトウェア設計時に従うべき 5 つのガイドラインのこと
 
-<v-click>
-  <Arrow x1="400" y1="153" x2="330" y2="153" />
-  <span style="position: absolute; top: 155; left: 405px;">今回はこれの話</span>
-</v-click>
+- Single Responsibility Principle(SRP)
+- Open Closed Principle(OCP)
+- Liskov Substitution Principle(LSP)
+- Interface Segregation Principle(ISP)
+- Dependency Inversion Principle(DIP)
 
-- Single Responsibility Principle
-- Open Closed Principle
-- Liskov Substitution Principle
-- Interface Segregation Principle
-- Dependency Inversion Principle
+---
+
+# SOLID 原則の目的
+
+- 変更に強い
+- 可読性
+- 再利用性
+- 汎用性
+- モジュール性
+
+---
+
+# SOLID 原則とは(再掲)
+
+ソフトウェア設計時に従うべき 5 つのガイドラインのこと
+
+- Single Responsibility Principle(SRP)
+- <span class="gray-out">Open Closed Principle(OCP)</span>
+- <span class="gray-out">Liskov Substitution Principle(LSP)</span>
+- <span class="gray-out">Interface Segregation Principle(ISP)</span>
+- <span class="gray-out">Dependency Inversion Principle(DIP)</span>
+
+<style>
+  .gray-out {
+    color: rgba(255, 255, 255, .3);
+  }
+</style>
+
+---
+layout: center
+---
+
+# 単一責任の原則(SRP)
+
+---
+layout: center
+---
+
+## 🤔クラスとか関数とかは 1 つのことだけをやればいいってことでしょ？
+
+<!--
+この意識自体は正しいが、これはでかい関数を分けたときの最下位のレベルに使う原則
+
+SRP では次のことを定義としている
+-->
 
 ---
 layout: quote
 ---
 
-# 単一責任の原則(SRP)
+# 定義
 
 > モジュールはたったひとつのアクターに対して責務を負うべき
+
+---
+layout: center
+---
+
+# 🤔モジュール？アクター？
 
 ---
 layout: quote
@@ -45,6 +92,67 @@ layout: quote
 > ソースファイルもしくはいくつかの関数やデータをまとめた凝集性のあるもの
 
 <p class="text-xs">凝集性: ロジックとデータが共通の目的を達成するために協調しているかを示す度合い</p>
+
+<!--
+ロジックと関係ないデータを持っていたり、その逆のコードがある場合、凝集性が低いといえる
+-->
+
+---
+layout: two-cols
+---
+
+# 凝集度の例
+
+```php
+class User {
+    public function save() {
+        // DB への保存をするロジック
+    }
+
+    public function sendMail() {
+        // メールを送信するロジック
+    }
+
+    public function calcCart() {
+        // カート内の金額を計算するロジック
+    }
+}
+```
+
+::right::
+
+<h1 style="color: rgba(0, 0, 0, 0);">_</h1>
+
+```php
+class User {
+}
+
+class UserRepository {
+    public function save(User $user) {
+        // DB への保存をするロジック
+    }
+}
+
+class SendMailService {
+    public function send() {
+        // メールを送信するロジック
+    }
+}
+
+class CartCalculator {
+    public function handle(Collection $item) {
+        // カート内の金額を計算するロジック
+    }
+}
+```
+
+<!--
+左側のコードが凝集度が低いコード
+
+User クラスにいろんな処理が混じっている
+
+一方右側のコードは、それぞれのクラスに分かれている
+-->
 
 ---
 layout: quote
