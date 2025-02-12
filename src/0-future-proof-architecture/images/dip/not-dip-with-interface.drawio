@@ -1,0 +1,26 @@
+<mxfile host="65bd71144e">
+    <diagram id="OSG7pEJbEgaRlLLoCpN2" name="Page-1">
+        <mxGraphModel dx="1693" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="11" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="100" y="180"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;Deposit&lt;/span&gt;&lt;font color=&quot;#ffffff&quot;&gt;Interactor&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ea9999ff;strokeColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;QueryBuilderBankAccount&lt;/span&gt;&lt;font color=&quot;#ffffff&quot;&gt;Repository&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#a4c2f4ff;strokeColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="195" y="160" width="210" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;span style=&quot;color: rgb(255, 255, 255);&quot;&gt;BankAccount&lt;/span&gt;&lt;font color=&quot;#ffffff&quot;&gt;RepositoryInterface&lt;/font&gt;&lt;font color=&quot;#ffffff&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB366;strokeColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="40" width="200" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,15 @@
+:root {
+  --slidev-code-background: #2e3440;
+}
+
+.neversink-sky-light-scheme {
+  --neversink-bg-color: #E9EFF5 !important;
+}
+
+ul, ol {
+  color: #2e3440;
+}
+
+p {
+  color: #2e3440;
+}
