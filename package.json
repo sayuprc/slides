@@ -8,5 +8,10 @@
   "private": true,
   "workspaces": [
     "src/*"
-  ]
+  ],
+  "dependencies": {
+    "@slidev/client": "^51.1.0",
+    "@slidev/types": "^51.1.0",
+    "slidev-theme-neversink": "^0.3.6"
+  }
 }
