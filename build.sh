@@ -13,7 +13,7 @@ do
   title=`awk -F ': ' '/^title:/ {print $2; exit}' "src/${workspace}/slides.md"`
 
   LIST="${LIST}<li><a href=\""/${BASE}/${workspace}/"\">${title}</a></li>"
-done < <(find src -maxdepth 1 -type d -name "[0-9]*" | sed 's/src\///')
+done < <(find src -maxdepth 1 -type d -name "[0-9]*" | sed 's/src\///' | sort)
 
 cp "${SCRIPT_DIR}/template.html" "${SCRIPT_DIR}/dist/index.html"
 
