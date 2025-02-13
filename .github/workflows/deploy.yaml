@@ -37,9 +37,7 @@ jobs:
         run: yarn --production
 
       - name: build
-        run: |
-          yarn workspace 0-future-proof-architecture build --base /${{github.event.repository.name}}/0-future-proof-architecture/ -o ../../dist/0-future-proof-architecture
-          yarn workspace 1-single-responsibility-principle build --base /${{github.event.repository.name}}/1-single-responsibility-principle/ -o ../../dist/1-single-responsibility-principle
+        run: ./build.sh ${{github.event.repository.name}}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
