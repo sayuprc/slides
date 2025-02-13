@@ -23,7 +23,7 @@ down: ## Delete the container
 yarn-install: ## Install packages
 	docker compose run --rm node yarn
 
-SUBDIRS := $(shell find src -maxdepth 1 -type d -print | sed '1d' | sed 's/src\///')
+SUBDIRS := $(shell find src -maxdepth 1 -type d -name "[0-9]*" -print | sed 's/src\///')
 
 .PHONY: $(SUBDIRS)-dev
 $(SUBDIRS)-dev: ## Running dev server
