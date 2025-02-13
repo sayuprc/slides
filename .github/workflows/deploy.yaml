@@ -29,11 +29,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: yarn cache
+        id: yarn_cache
+        uses: actions/cache@v4
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-package-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-package-
+
       - uses: actions/setup-node@v4
         with:
           node-version: ${{env.NODE_VERSION}}
 
       - name: package install
+        if: steps.yarn_cache.outputs.cache-hit != 'true'
         run: yarn --production
 
       - name: build
