@@ -1,9 +1,8 @@
-name: Deploy pages
+name: Deploy page
 
 on:
   pull_request:
-    types:
-      - closed
+    types: [closed]
     branches:
       - main
 
@@ -13,48 +12,43 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: false
+
+env:
+  NODE_VERSION: "22.x"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: ${{env.NODE_VERSION}}
 
-      - name: Setup @antfu/ni
-        run: npm i -g @antfu/ni
+      - name: package install
+        run: yarn --production
 
-      - name: Install dependencies
-        run: nci
-
-      - name: Build
+      - name: build
         run: |
-          cd src/0-future-proof-architecture
-          nr build --base /${{github.event.repository.name}}/0-future-proof-architecture/ -o ../../dist/0-future-proof-architecture
-          cd ../1-single-responsibility-principle
-          nr build --base /${{github.event.repository.name}}/1-single-responsibility-principle/ -o ../../dist/1-single-responsibility-principle
+          yarn workspace 0-future-proof-architecture build --base /${{github.event.repository.name}}/0-future-proof-architecture/ -o dist/0-future-proof-architecture
+          yarn workspace 1-single-responsibility-principle build --base /${{github.event.repository.name}}/1-single-responsibility-principle/ -o dist/1-single-responsibility-principle
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: "dist/"
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
