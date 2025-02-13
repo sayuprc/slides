@@ -36,9 +36,9 @@ jobs:
       - name: Build
         run: |
           cd src/0-future-proof-architecture
-          nr build --base /${{github.event.repository.name}}/0-future-proof-architecture ../../dist/0-future-proof-architecture
+          nr build --base /${{github.event.repository.name}}/0-future-proof-architecture/ -o ../../dist/0-future-proof-architecture
           cd ../1-single-responsibility-principle
-          nr build --base /${{github.event.repository.name}}/1-single-responsibility-principle ../../dist/1-single-responsibility-principle
+          nr build --base /${{github.event.repository.name}}/1-single-responsibility-principle/ -o ../../dist/1-single-responsibility-principle
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
