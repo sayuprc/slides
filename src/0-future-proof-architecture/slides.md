@@ -693,7 +693,7 @@ color: sky-light
 # 問題点
 
 - 密結合
-  - テスト容易性(テスタビリティ)が低い
+  - テスタビリティが低い
   - 変更に弱い
 - 詳細な実装(Infrastructure 層)に依存している
 
@@ -729,7 +729,7 @@ color: sky-light
 
 # メリット
 
-- テスト容易性が向上
+- テスタビリティが向上
   - モックを使ったテストができるようになる
 - 結合度を下げられる
 
@@ -895,13 +895,13 @@ class BankAccountService
 <!--
 [click:1] ドメインサービスも同様にコンストラクタにリポジトリを渡すようにします
 
-依存しているオブジェクトをコンストラクタの引数として渡すことで、外部からモックを渡せるようになるので、テスト容易性が向上します
+依存しているオブジェクトをコンストラクタの引数として渡すことで、外部からモックを渡せるようになるので、テスタビリティが向上します
 
 今回はコンストラクタに渡していますが、メソッドの引数に渡す方法もあります
 
 これらはそれぞれコンストラクタインジェクション,メソッドインジェクションと呼ばれます
 
-DI によってテスト容易性は向上しましたが、まだ次のような問題が残っています(次のスライド)
+DI によってテスタビリティは向上しましたが、まだ次のような問題が残っています(次のスライド)
 -->
 
 ---
@@ -915,8 +915,6 @@ color: sky-light
 ここまでのコードの関係図はこのようになっています
 
 新たにリポジトリが生えたことによって、Application 層や Domain 層が直接 DB Facade に依存することはなくなりました
-
-しかし、この状態ではまだ次のような問題点があります(次のスライド)
 -->
 
 ---
@@ -926,13 +924,13 @@ color: sky-light
 # 問題点
 
 - 密結合
-  - ~~テスト容易性(テスタビリティ)が低い~~
+  - ~~テスタビリティが低い~~
   - 変更に弱い
 - 詳細な実装(Infrastructure 層)に依存している
-- Infrastructure 層が Domain 層に依存している <- New!
+- Infrastructure 層が Domain 層に依存している <span style="color: #F43F5E;"><- New!</span>
 
 <!--
-DI だけではテスト容易性以外の問題を解決することはできません
+DI だけではテスタビリティ以外の問題を解決することはできません
 
 むしろ新たに Infrastructure 層が Domain 層に依存してしまうという問題が発生しています
 
@@ -1258,7 +1256,7 @@ color: sky-light
 
 <SpeechBubble position="t" color="indigo-light" shape="round" style="z-index: 100; position: absolute; left: 150px; top: 80px;">
 
-詳細の実装
+実装の詳細
 </SpeechBubble>
 
 ```php{1}
@@ -1283,7 +1281,7 @@ color: sky-light
 
 <SpeechBubble position="t" color="indigo-light" shape="round" style="z-index: 100; position: absolute; left: 150px; top: 80px;">
 
-詳細の実装
+実装の詳細
 </SpeechBubble>
 
 <SpeechBubble position="t" color="amber-light" shape="round" style="z-index: 100; position: absolute; left: 370px; top: 80px;">
@@ -1350,7 +1348,7 @@ color: sky-light
 # 問題点
 
 - ~~密結合~~
-  - ~~テスト容易性(テスタビリティ)が低い~~
+  - ~~テスタビリティが低い~~
   - ~~変更に弱い~~
 - ~~詳細な実装(Infrastructure 層)に依存している~~
 - ~~Infrastructure 層が Domain 層に依存している~~
