@@ -9,6 +9,30 @@ color: sky-light
 # 特定の技術に依存しない<br>アプリケーション設計入門
 
 ---
+color: sky-light
+---
+
+# はじめに
+
+<br>
+
+今回の話に出てくる方法はあくまで解決策の 1 つ
+
+その時々の状況に合う方法を選択しましょう
+
+<!--
+話を進める前に大切なことを言っておきます
+
+今回の話に出てくる方法はあくまで解決策の 1 つです
+
+このやり方が適切な場合もあれば、そうでない場合もあります
+
+様々な手段を知り、適切に選択することがとても大切です
+
+そのうえで、今回の話を聞いてアーキテクチャに興味を持ってもらえたらと嬉しいなと思います
+-->
+
+---
 layout: section
 slide_info: false
 color: sky-light
@@ -17,6 +41,8 @@ color: sky-light
 # 依存とは
 
 <!--
+依存とは
+
 この後「依存」って言葉がいっぱい出てくるのでわかっているとは思いますが改めてざっくり説明します
 -->
 
@@ -62,6 +88,10 @@ class B
 }
 ```
 
+<!--
+A と B というクラスがあります
+-->
+
 ---
 layout: two-cols
 slide_info: false
@@ -95,7 +125,9 @@ class B
 ```
 
 <!--
-クラス A はクラス B の振る舞いに頼っている
+クラス A の doSomething メソッドで、クラス B のメソッドを呼んで何らかの処理を行っています
+
+これはクラス A がクラス B の振る舞いに頼っているといえます
 -->
 
 ---
@@ -110,6 +142,12 @@ color: sky-light
 
 </div>
 
+<!--
+クラス A がクラス B の振る舞いに頼っているということを「A は B に依存している」といいます
+
+また、「依存している側(A)」から「依存されている側(B)」に向かって矢印が伸びた図になります
+ -->
+
 ---
 layout: section
 slide_info: false
@@ -117,6 +155,10 @@ color: sky-light
 ---
 
 # 具体例
+
+<!--
+依存の具体例を見ていきます
+-->
 
 ---
 slide_info: false
@@ -150,6 +192,8 @@ class DepositInteractor
 ```
 
 <!--
+こちらは銀行口座にお金を入れる処理です
+
 DepositInteractor は
 
 [click:1] DepositRequest/DepositResponse
@@ -195,13 +239,17 @@ color: sky-light
 
 # こんなことがあるかも
 
-- ある日、フレームワーク/ライブラリが非推奨になった
-- フレームワーク/ライブラリを更新したら互換性がなくてアプリケーションが壊れた
+- フレームワーク/ライブラリ
+  - バージョンアップしたら互換性がなくなった
+  - 使ってるバージョンのサポートが切れた
+  - 非推奨になった
 - データベースを移行したら SQL の文法が使えなくてエラーが起きた
-- ライセンスが変わって使えなくなった
+- ライセンスが変わってコードの変更を余儀なくされた
 
 <!--
-こういうことがあるとコードの更新が必要になる
+このようにアプリケーションに変更を加える必要が出てくることはよくあることです
+
+これの何が問題かというと(次のスライド)
 -->
 
 ---
@@ -233,6 +281,15 @@ style: |
 # 変更のたびに大きな負担がかかる
 
 <!--
+変更するには
+
+- 対応個所を調べて
+- 影響範囲を調べて
+- 作業して
+- テストして
+
+といった負担がかかります
+
 この負担を下げるために(次のスライド)
 -->
 
@@ -344,7 +401,7 @@ color: sky-light
 <!--
 POPO とは
 
-PHP の基本的な機能を使ってオブジェクトのこと
+PHP の基本的な機能を使ったオブジェクトのこと
 
 特定のライブラリやフレームワークに依存しないもの
 
@@ -358,14 +415,11 @@ color: sky-light
 # Domain 層
 
 - ビジネスロジックを担当
-- 対象領域の知識(ドメイン知識)を実現
-- 例
-  - ドメインオブジェクト
-  - ドメインサービス
+- 対象領域の知識を実現
 - **POPO(Plain Old PHP Object)** にする
 
 <!--
-ドメインオブジェクト、ドメインサービスは DDD で調べてもらえるとよい
+ビジネスロジックを特定の技術から守るため、Application 層と Domain 層を POPO にします 
 -->
 
 ---
@@ -394,7 +448,7 @@ style: |
 # https://github.com/sayuprc-learning/bank-account
 
 <!--
-今日話すコードは GitHub に上がっています
+今回の話で出てくるコードは GitHub に上がっています
 
 スライドではスペースの都合上省略しているコードがあるので、もしよかったらリンクからコードを読んでみてください
 
@@ -467,12 +521,6 @@ class BankAccountService
 ```
 
 <!--
-ドメインサービスと呼ばれるクラスで、Entity や ValueObject で表現するには不自然なものを表現するものです
-
-話がそれてしまうので今回詳しくは話しません
-
-興味がある人はドメインサービスで調べてみてください
-
 このクラスでは口座番号をもとに口座を検索するメソッドを実装しています
 -->
 
@@ -485,7 +533,7 @@ color: sky-light
 
 <img v-drag="[796,37,121,221]" style="z-index: 10000; position: absolute;" src="./images/layerd/arch.svg">
 
-```php{all|3,7|9|11|13-17|19}
+```php{all|3|7,9|11|13-17|19}
 class DepositInteractor
 {
     public function handle(DepositRequest $request): DepositResponse
@@ -510,17 +558,17 @@ class DepositInteractor
 ```
 
 <!--
-預入処理の実装です
+口座に入金する処理の実装です
 
-[click:1] 預入に必要な入力値から
+[click:1] 入金に必要な入力値から
 
 [click:1] 対象の口座を取得
 
 [click:1] 口座に対して入金処理して
 
-[click:1] データを保存
+[click:1] 残高を更新
 
-[click:1] 最終的な出力の形式を返す
+[click:1] 入金処理のレスポンスを返す
 -->
 
 ---
@@ -600,12 +648,12 @@ color: sky-light
 
 <img v-drag="[796,37,121,221]" style="z-index: 10000; position: absolute;" src="./images/layerd/arch.svg">
 
-```php{all|5-8|10-13|15|17}
+```php{all|5-8|10-14|16|18}
 class DepositController extends Controller
 {
-    public function handle(Request $request): JsonResponse
+    public function handle(Request $httpRequest): JsonResponse
     {
-        $validated = $request->validate([
+        $validated = $httpRequest->validate([
             'account_number' => ['required', 'regex:/\A\d{8}\z/'],
             'amount' => ['required', 'integer', 'min:1'],
         ]);
@@ -613,7 +661,8 @@ class DepositController extends Controller
         $accountNumber = $validated['account_number'];
         $amount = (int)$validated['amount'];
 
-        $outputData = new DepositInteractor()->handle(new DepositRequest($accountNumber, $amount));
+        $request = new DepositRequest($accountNumber, $amount)
+        $outputData = new DepositInteractor()->handle($request);
 
         $response = new DepositDto()->present($outputData);
 
@@ -623,13 +672,13 @@ class DepositController extends Controller
 ```
 
 <!--
-最後に User Interface 層です
+User Interface 層です
 
 [click:1] ユーザーからの値をバリデーションして
 
-[click:1] Application 層ように入力値を整形し、処理を委譲
+[click:1] Application に渡す入力値に整形し、処理を委譲
 
-[click:1] API の表示用クラスに実行結果を渡して整形し
+[click:1] API 出力用クラスに実行結果を渡して整形し
 
 [click:1] JSON 形式のレスポンスを返す
 -->
@@ -657,7 +706,7 @@ class DepositDto
 ```
 
 <!--
-Application 層の出力を用いて、User Interface 層に応じた出力の形を作る
+API 出力用クラスです
 
 今回の場合はシンプルに値をそのまま出力するだけですが、日付や数値のフォーマットは必要に応じてここで行うことがあります
 -->
@@ -695,11 +744,14 @@ color: sky-light
 - 密結合
   - テスタビリティが低い
   - 変更に弱い
-- 詳細な実装(Infrastructure 層)に依存している
+- 実装の詳細(Infrastructure 層)に依存している
 
 <!--
 1. 密結合であること
+
 密結合だとテストがしづらく、依存しているオブジェクトに変更があったときその影響をもろに受けることになります
+
+Facade であれば fake を使ってテストができる -> この話は、特定の技術に依存しないことを目標としているので、Facade でできるから良いというものではない
 
 2. Infrastructure 層に依存していること
 レイヤードアーキテクチャとしては、この依存の向きは問題ないのですが、今回は変化しやすい技術に依存しない設計を目標としているためこれはとても大きな問題となります
@@ -893,15 +945,13 @@ class BankAccountService
 ````
 
 <!--
-[click:1] ドメインサービスも同様にコンストラクタにリポジトリを渡すようにします
+[click:1] BankAccountService も同様にコンストラクタにリポジトリを渡すようにします
 
 依存しているオブジェクトをコンストラクタの引数として渡すことで、外部からモックを渡せるようになるので、テスタビリティが向上します
 
 今回はコンストラクタに渡していますが、メソッドの引数に渡す方法もあります
 
 これらはそれぞれコンストラクタインジェクション,メソッドインジェクションと呼ばれます
-
-DI によってテスタビリティは向上しましたが、まだ次のような問題が残っています(次のスライド)
 -->
 
 ---
@@ -915,6 +965,8 @@ color: sky-light
 ここまでのコードの関係図はこのようになっています
 
 新たにリポジトリが生えたことによって、Application 層や Domain 層が直接 DB Facade に依存することはなくなりました
+
+DI によってテスタビリティは向上しましたが、まだ次のような問題が残っています(次のスライド)
 -->
 
 ---
@@ -926,7 +978,7 @@ color: sky-light
 - 密結合
   - ~~テスタビリティが低い~~
   - 変更に弱い
-- 詳細な実装(Infrastructure 層)に依存している
+- 実装の詳細(Infrastructure 層)に依存している
 - Infrastructure 層が Domain 層に依存している <span style="color: #F43F5E;"><- New!</span>
 
 <!--
@@ -1350,7 +1402,7 @@ color: sky-light
 - ~~密結合~~
   - ~~テスタビリティが低い~~
   - ~~変更に弱い~~
-- ~~詳細な実装(Infrastructure 層)に依存している~~
+- ~~実装の詳細(Infrastructure 層)に依存している~~
 - ~~Infrastructure 層が Domain 層に依存している~~
 
 ---
