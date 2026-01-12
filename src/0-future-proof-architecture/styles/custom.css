@@ -1,5 +1,5 @@
 :root {
-  --slidev-code-background: #2e3440;
+  --slidev-code-background: #2e3440 !important;
 }
 
 .neversink-sky-light-scheme {
