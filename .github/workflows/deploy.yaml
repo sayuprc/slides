@@ -15,9 +15,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  NODE_VERSION: "24.x"
-
 jobs:
   build:
     environment:
@@ -29,22 +26,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: yarn cache
-        id: yarn_cache
-        uses: actions/cache@v5
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-package-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-package-
-
-      - uses: actions/setup-node@v6
-        with:
-          node-version: ${{env.NODE_VERSION}}
+      - name: Setup mise
+        uses: jdx/mise-action@v4
 
       - name: package install
-        if: steps.yarn_cache.outputs.cache-hit != 'true'
-        run: yarn --production
+        run: pnpm i -P --frozen-lockfile
 
       - name: build
         run: ./build.sh ${{github.event.repository.name}}

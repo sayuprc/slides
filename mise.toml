@@ -1,17 +1,3 @@
 [tools]
 node = "24"
-"npm:yarn" = "latest"
-
-[tasks.preview]
-description = "プレビュー表示"
-usage = '''
-arg "<workspace>" help="対象ワークスペース"
-'''
-run = "yarn workspace ${usage_workspace} dev"
-
-[tasks.list]
-description = "ワークスペース一覧"
-quiet = true
-run = '''
-find src -maxdepth 1 -type d -name "[0-9]*" -print | sed 's/src\///'
-'''
+pnpm = "10.33.0"

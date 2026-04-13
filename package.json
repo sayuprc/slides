@@ -6,9 +6,6 @@
   "author": "sayuprc",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "src/*"
-  ],
   "dependencies": {
     "@slidev/client": "^52.11.2",
     "@slidev/types": "^52.11.2",

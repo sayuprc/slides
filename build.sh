@@ -8,7 +8,7 @@ LIST=""
 
 while read workspace;
 do
-  yarn workspace ${workspace} build --base "/${BASE}/${workspace}/" -o "${SCRIPT_DIR}/dist/${workspace}"
+  pnpm --filter ${workspace} build --base "/${BASE}/${workspace}/" -o "${SCRIPT_DIR}/dist/${workspace}"
 
   title=`awk -F ': ' '/^title:/ {print $2; exit}' "src/${workspace}/slides.md"`
 
