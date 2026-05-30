@@ -15,8 +15,8 @@ importers:
         specifier: ^52.11.2
         version: 52.14.2(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@nuxt/kit@3.21.2)(@vue/compiler-sfc@3.5.32)(typescript@5.9.3)(vite@7.3.2(@types/node@22.19.17)(jiti@2.6.1)(yaml@2.8.3))
       slidev-theme-neversink:
-        specifier: ^0.4.0
-        version: 0.4.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@nuxt/kit@3.21.2)(@vue/compiler-sfc@3.5.32)(markdown-it@14.1.1)(typescript@5.9.3)(vite@7.3.2(@types/node@22.19.17)(jiti@2.6.1)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
+        specifier: 0.4.0
+        version: 0.4.0(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@nuxt/kit@3.21.2)(@vue/compiler-sfc@3.5.32)(markdown-it@14.1.1)(typescript@5.9.3)(vite@7.3.2(@types/node@22.19.17)(jiti@2.6.1)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3))
 
   src/0-future-proof-architecture:
     dependencies:
@@ -2503,9 +2503,9 @@ packages:
     resolution: {integrity: sha512-ndMD27+gUNYt9aXrb4/0vSBHKP007mpD2eCJppzhqXDG1DmN0Q6I6iFz+QvIjOPDKzzPjoYZbsWp6lPLJjgs9g==}
     engines: {node: '>=14.0.0', slidev: '>=0.19.3'}
 
-  slidev-theme-neversink@0.4.1:
-    resolution: {integrity: sha512-rrnwri1/2J0d5LsDyrV/Q1rjpOEvDiGiAOVTw2D349tNj4C7fninxfsBT9dKzGW3Zpbqotu9UTxKTX27Nvqetw==}
-    engines: {node: '>=18.0.0', slidev: '>=52.11.3'}
+  slidev-theme-neversink@0.4.0:
+    resolution: {integrity: sha512-j7QRMf0BcuiZlN7G6blAtDcoWgB7Wu5G92OAciu2aRxYrXCkYwW9ys810fABE4dYcx+tEZT2u0+2QhdJ6C4hvA==}
+    engines: {node: '>=18.0.0', slidev: '>=52.1.0'}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -5850,7 +5850,7 @@ snapshots:
       prism-theme-vars: 0.2.5
       theme-vitesse: 0.7.9
 
-  slidev-theme-neversink@0.4.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@nuxt/kit@3.21.2)(@vue/compiler-sfc@3.5.32)(markdown-it@14.1.1)(typescript@5.9.3)(vite@7.3.2(@types/node@22.19.17)(jiti@2.6.1)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3)):
+  slidev-theme-neversink@0.4.0(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@nuxt/kit@3.21.2)(@vue/compiler-sfc@3.5.32)(markdown-it@14.1.1)(typescript@5.9.3)(vite@7.3.2(@types/node@22.19.17)(jiti@2.6.1)(yaml@2.8.3))(vue@3.5.32(typescript@5.9.3)):
     dependencies:
       '@iconify-json/logos': 1.2.11
       '@iconify-json/mdi': 1.2.3
