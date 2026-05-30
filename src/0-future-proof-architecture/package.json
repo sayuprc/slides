@@ -9,10 +9,10 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^52.11.2",
+    "@slidev/cli": "catalog:",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
-    "vite": "^7.3.1",
-    "vue": "^3.5.26"
+    "vite": "catalog:",
+    "vue": "catalog:"
   }
 }
