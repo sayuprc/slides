@@ -976,7 +976,7 @@ color: sky-light
 # 問題点
 
 - 密結合
-  - ~~テスタビリティが低い~~
+  - ✅テスタビリティが低い
   - 変更に弱い
 - 実装の詳細(Infrastructure 層)に依存している
 - Infrastructure 層が Domain 層に依存している <span style="color: #F43F5E;"><- New!</span>
@@ -1399,11 +1399,11 @@ color: sky-light
 
 # 問題点
 
-- ~~密結合~~
-  - ~~テスタビリティが低い~~
-  - ~~変更に弱い~~
-- ~~実装の詳細(Infrastructure 層)に依存している~~
-- ~~Infrastructure 層が Domain 層に依存している~~
+- ✅密結合
+  - ✅テスタビリティが低い
+  - ✅変更に弱い
+- ✅実装の詳細(Infrastructure 層)に依存している
+- ✅Infrastructure 層が Domain 層に依存している
 
 ---
 layout: center
