@@ -1,0 +1,13 @@
+{
+  "name": "slidev-addon-shared",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "keywords": [
+    "slidev-addon",
+    "slidev"
+  ],
+  "dependencies": {
+    "@slidev/types": "catalog:"
+  }
+}

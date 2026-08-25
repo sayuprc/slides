@@ -1,5 +1,7 @@
 ---
 theme: neversink
+addons:
+  - slidev-addon-shared
 title: 特定の技術に依存しないアプリケーション設計入門
 author: 白湯/sayuprc
 slide_info: false
