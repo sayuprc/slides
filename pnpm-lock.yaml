@@ -61,6 +61,12 @@ importers:
 
   .: {}
 
+  packages/slidev-addon-shared:
+    dependencies:
+      '@slidev/types':
+        specifier: 'catalog:'
+        version: 52.19.1(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.6)(@vue/compiler-sfc@3.5.41)(cac@7.0.0)(esbuild@0.28.2)(rolldown@1.2.5)(rollup@4.60.1)(srvx@0.12.7)(typescript@6.0.3)(vite@8.2.2(@types/node@22.19.17)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
+
   src/0-future-proof-architecture:
     dependencies:
       '@slidev/cli':
@@ -75,6 +81,9 @@ importers:
       '@slidev/types':
         specifier: 'catalog:'
         version: 52.19.1(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.6)(@vue/compiler-sfc@3.5.41)(cac@7.0.0)(esbuild@0.28.2)(rolldown@1.2.5)(rollup@4.60.1)(srvx@0.12.7)(typescript@6.0.3)(vite@7.3.6(@types/node@22.19.17)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))
+      slidev-addon-shared:
+        specifier: workspace:*
+        version: link:../../packages/slidev-addon-shared
       slidev-theme-neversink:
         specifier: 'catalog:'
         version: 0.4.0(@modelcontextprotocol/server@2.0.0)(@nuxt/kit@3.21.6)(@vue/compiler-sfc@3.5.41)(cac@7.0.0)(esbuild@0.28.2)(markdown-it@14.3.0)(rolldown@1.2.5)(rollup@4.60.1)(srvx@0.12.7)(typescript@6.0.3)(vite@7.3.6(@types/node@22.19.17)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.0))(vue@3.5.32(typescript@6.0.3))
